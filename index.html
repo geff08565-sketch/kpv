@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>КПВ «Крипта по-взрослому» — Сергей Мухомедзянов Амирович</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #1a1a1a;
+  background: #fff;
+  line-height: 1.65;
+  overflow-x: hidden;
+  padding-top: 0;
+}
+
+/* ─── CONTAINERS ─── */
+.container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.container-wide { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+/* ─── SECTIONS ─── */
+.section { padding: 72px 0; }
+.section-dark { background: #000; color: #fff; }
+.section-dark-soft { background: #1a1a1a; color: #fff; }
+.section-light { background: #fff; color: #1a1a1a; }
+.section-light-soft { background: #f4f4f4; color: #1a1a1a; }
+
+/* ─── TYPOGRAPHY ─── */
+h1, h2, h3, h4 { line-height: 1.2; font-weight: 500; }
+.section-dark h1, .section-dark h2, .section-dark h3,
+.section-dark-soft h1, .section-dark-soft h2, .section-dark-soft h3 { color: #fff; }
+.section-light h1, .section-light h2, .section-light h3,
+.section-light-soft h1, .section-light-soft h2, .section-light-soft h3 { color: #1a1a1a; }
+
+h2 { font-size: clamp(28px, 4vw, 40px); }
+h3 { font-size: clamp(16px, 2vw, 19px); font-weight: 600; }
+
+.body-dark { color: rgba(255,255,255,0.7); }
+.body-light { color: #666; }
+
+.accent { color: #FA660F; }
+
+/* ─── MARQUEE ─── */
+.marquee-bar {
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 9px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-text {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  padding: 0 48px;
+  letter-spacing: 0.03em;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: #000;
+  padding-top: 12px;
+  padding-bottom: 20px;
+}
+.hero h1 {
+  font-size: clamp(34px, 5vw, 54px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+.hero-sub {
+  font-size: clamp(15px, 2vw, 18px);
+  color: rgba(255,255,255,0.65);
+  max-width: 540px;
+  margin: 0 0 32px 0;
+  text-align: left;
+}
+.hero-sub strong { color: #fff; font-weight: 600; }
+.hero-label {
+  color: #FA660F;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 500;
+  margin-bottom: 18px;
+  margin-top: 28px;
+  display: block;
+}
+
+/* ─── BADGE ─── */
+.badge-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #FA660F;
+  color: #FA660F;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 4px;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.badge-dot {
+  width: 7px; height: 7px;
+  background: #FA660F;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+
+.badge-light {
+  display: inline-block;
+  background: #FA660F;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+/* ─── BUTTONS ─── */
+.btn-primary {
+  display: inline-block;
+  background: #FA660F;
+  color: #fff;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 15px 32px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background .15s;
+  border: none;
+  cursor: pointer;
+  line-height: 1.35;
+}
+.btn-primary:hover { background: #e05508; }
+.btn-primary-lg {
+  font-size: 19px;
+  padding: 17px 40px;
+}
+.btn-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  margin-top: 12px;
+}
+.btn-sub-light {
+  font-size: 13px;
+  color: #999;
+  margin-top: 12px;
+}
+
+/* ─── META FACTS ─── */
+.meta-facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 24px;
+}
+.meta-facts span {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.meta-facts i { color: #FA660F; }
+
+/* ─── SECTION HEADING ─── */
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #FA660F;
+  margin-bottom: 14px;
+}
+
+/* ─── DASHBOARD STATS ─── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: #222;
+  border: 1px solid #222;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.stat-cell {
+  background: #111;
+  padding: 28px 20px;
+  text-align: center;
+}
+.stat-num { text-align: center; display: block;
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-num .accent { color: #FA660F; }
+.stat-label { font-size: 12px; color: rgba(255,255,255,0.4); text-align: center; display: block; }
+
+/* ─── CARDS DARK ─── */
+.card-dark {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 24px;
+  transition: border-color .15s;
+}
+.card-dark:hover { border-color: #333; }
+
+/* ─── CARDS LIGHT ─── */
+.card-light {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 24px;
+  transition: border-color .15s;
+}
+.card-light:hover { border-color: #ccc; }
+
+/* ─── ICON BOX ─── */
+.icon-box {
+  width: 44px; height: 44px;
+  background: rgba(250,102,15,0.1);
+  border: 1px solid rgba(250,102,15,0.25);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.icon-box i { color: #FA660F; font-size: 17px; }
+.icon-box-dark { background: rgba(250,102,15,0.12); border-color: rgba(250,102,15,0.2); }
+
+/* ─── MODULE TAG ─── */
+.module-tag {
+  display: inline-block;
+  border: 1px solid #FA660F;
+  color: #FA660F;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  margin-bottom: 16px;
+}
+
+/* ─── BONUS CARD ─── */
+.bonus-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 28px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  min-width: 0;
+}
+.bonus-num {
+  font-size: 48px;
+  font-weight: 700;
+  color: rgba(250,102,15,0.25);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 52px;
+}
+.bonus-price {
+  display: inline-block;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  padding: 3px 10px;
+  margin-top: 8px;
+}
+
+/* ─── CHECK LIST ─── */
+.check-list { list-style: none; }
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid #1a1a1a;
+  font-size: 15px;
+  color: rgba(255,255,255,0.85);
+}
+.check-list li:last-child { border-bottom: none; }
+.check-list li i { color: #FA660F; margin-top: 3px; flex-shrink: 0; }
+.check-list-light li {
+  border-bottom-color: #e8e8e8;
+  color: #333;
+}
+
+/* ─── FAQ ─── */
+.faq-item { border-bottom: 1px solid #e0e0e0; }
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  cursor: pointer;
+  color: #1a1a1a;
+  font-weight: 600;
+  font-size: 16px;
+  gap: 16px;
+}
+.faq-q i { color: #FA660F; transition: transform .3s; font-size: 12px; flex-shrink: 0; }
+.faq-q.open i { transform: rotate(180deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.75;
+}
+.faq-a.open { max-height: 600px; padding-bottom: 20px; }
+
+/* ─── GUARANTEE ─── */
+.guarantee-block {
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 40px;
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+.guarantee-icon {
+  font-size: 44px;
+  flex-shrink: 0;
+  color: #FA660F;
+}
+
+/* ─── PRICE ─── */
+.price-old { text-decoration: line-through; color: rgba(255,255,255,0.3); font-size: 20px; }
+.price-new { font-size: clamp(36px, 5vw, 52px); font-weight: 700; color: #fff; line-height: 1; }
+.price-badge {
+  display: inline-block;
+  background: #FA660F;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.discount-block {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 32px;
+}
+
+/* ─── STEPS ─── */
+.step-num {
+  width: 36px; height: 36px;
+  background: #FA660F;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ─── DIVIDER ─── */
+.divider-dark { height: 1px; background: #1a1a1a; }
+.divider-light { height: 1px; background: #e8e8e8; }
+
+/* ─── CTA BANNER ─── */
+.cta-banner {
+  background: #FA660F;
+  border-radius: 8px;
+  padding: 40px 36px;
+  text-align: center;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .section { padding: 52px 0; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .guarantee-block { flex-direction: column; }
+  .bonus-card { flex-direction: column; gap: 12px; }
+  .hero { padding-top: 12px; }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     BLOCK 1 · HERO — DARK
+════════════════════════════════════════ -->
+<section class="hero section-dark">
+
+  <!-- Бегущая строка -->
+  <div class="marquee-bar">
+    <div class="marquee-track">
+      <span class="marquee-text">⭐ Оценка 9.5 из 10&nbsp;&nbsp;·&nbsp;&nbsp;100% гарантия возврата&nbsp;&nbsp;·&nbsp;&nbsp;Персональный подход</span>
+      <span class="marquee-text">⭐ Оценка 9.5 из 10&nbsp;&nbsp;·&nbsp;&nbsp;100% гарантия возврата&nbsp;&nbsp;·&nbsp;&nbsp;Персональный подход</span>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <span class="hero-label">Крипта по-взрослому</span>
+
+    <h1>
+      Построй <span class="accent">полную систему</span> пассивного дохода в&nbsp;DeFi от&nbsp;<span class="accent">5% до&nbsp;40% годовых</span> в&nbsp;долларах
+    </h1>
+
+    <p class="hero-sub">
+      Которая не зависит от курса рубля и направления рынка. 17 уроков с домашними заданиями в своём темпе: <strong>стратегия под твой капитал</strong>, все инструменты DeFi по шагам, <strong>закрытый Синдикат с AI-аналитиком</strong>. Персональный подход от первого урока до собранного портфеля.
+    </p>
+
+    <a href="#pricing" class="btn-primary btn-primary-lg">Начать обучение →</a>
+
+    <div class="meta-facts">
+      <span><i class="fa-solid fa-credit-card"></i> Беспроцентная рассрочка</span>
+      <span><i class="fa-solid fa-clock"></i> В своём темпе. Начни когда удобно</span>
+      <span><i class="fa-solid fa-comments"></i> Персональный чат: я + куратор + AI-помощник</span>
+      <span><i class="fa-solid fa-shield-halved"></i> Ведём до результата. Не отпустим пока не разберёшься</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BLOCK 2 · DASHBOARD STATS — DARK SOFT
+════════════════════════════════════════ -->
+<section class="section-dark-soft" style="padding: 8px 0;">
+  <div class="container-wide">
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <div class="stat-num"><span class="accent">17</span></div>
+        <div class="stat-label">уроков с практическими заданиями</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num"><span style="color:#fff;">5–40%</span></div>
+        <div class="stat-label">годовых в долларах</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">9.5</div>
+        <div class="stat-label">средняя оценка из 10</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num"><span class="accent">100%</span></div>
+        <div class="stat-label">гарантия возврата</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BLOCK 3 · ДЛЯ КОГО — LIGHT
+════════════════════════════════════════ -->
+<section class="section section-light">
+  <div class="container-wide">
+
+    <div style="max-width:860px; margin:0 auto 48px;">
+      <p class="section-label">Для кого</p>
+      <h2 style="color:#1a1a1a;">Знаешь, что криптовалюта может принести доход, но не знаешь, как его выстроить?</h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px; max-width:860px; margin:0 auto;">
+
+      <div class="card-light">
+        <div class="icon-box" style="margin-bottom:16px;"><i class="fa-solid fa-piggy-bank"></i></div>
+        <h3 style="margin-bottom:8px;">Деньги лежат без дела</h3>
+        <p style="font-size:14px; color:#666;">На вкладе, на карте или в крипте, которая просто стоит. Они не работают и не приносят доход, а ещё их съедает инфляция.</p>
+      </div>
+
+      <div class="card-light">
+        <div class="icon-box" style="margin-bottom:16px;"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3 style="margin-bottom:8px;">Слышал про DeFi, но не понимаешь с чего начать</h3>
+        <p style="font-size:14px; color:#666;">Пулы, стейкинг, лендинг звучит сложно, страшно ошибиться и потерять.</p>
+      </div>
+
+      <div class="card-light">
+        <div class="icon-box" style="margin-bottom:16px;"><i class="fa-solid fa-dice"></i></div>
+        <h3 style="margin-bottom:8px;">Нет стратегии</h3>
+        <p style="font-size:14px; color:#666;">Покупаешь наугад, не понимаешь когда продавать, при падении паникуешь. Инвестиции больше похожи на казино.</p>
+      </div>
+
+      <div class="card-light">
+        <div class="icon-box" style="margin-bottom:16px;"><i class="fa-solid fa-globe"></i></div>
+        <h3 style="margin-bottom:8px;">Хочешь доход в долларах</h3>
+        <p style="font-size:14px; color:#666;">Не зависеть от курса рубля, инфляции и решений ЦБ. Но не знаешь как это сделать безопасно.</p>
+      </div>
+
+      <div class="card-light">
+        <div class="icon-box" style="margin-bottom:16px;"><i class="fa-solid fa-rotate-left"></i></div>
+        <h3 style="margin-bottom:8px;">Пробовал сам, не получилось</h3>
+        <p style="font-size:14px; color:#666;">Смотрел YouTube, читал каналы, может даже открыл позицию. Системы нет, результат случайный.</p>
+      </div>
+
+      <div class="card-light">
+        <div class="icon-box" style="margin-bottom:16px;"><i class="fa-solid fa-brain"></i></div>
+        <h3 style="margin-bottom:8px;">Хочешь разобраться один раз</h3>
+        <p style="font-size:14px; color:#666;">Не подписываться на сигналы, не зависеть от чужих советов. Понимать что делаешь, почему и управлять капиталом самостоятельно.</p>
+      </div>
+
+      <div class="card-light">
+        <div class="icon-box" style="margin-bottom:16px;"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3 style="margin-bottom:8px;">Боишься потерять деньги</h3>
+        <p style="font-size:14px; color:#666;">Скам, непроверенные протоколы, взломы. Не знаешь как отличить надёжное от опасного и хочешь инвестировать с уверенностью, а не с тревогой.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BLOCK 4 · СИСТЕМА 3С — DARK
+════════════════════════════════════════ -->
+<section class="section section-dark">
+  <div class="container">
+
+    <p class="section-label">Решение</p>
+    <h2 style="margin-bottom:12px;">Не курс, а <span class="accent">Система 3С</span>, которую строишь <span class="accent">один раз</span>.</h2>
+    <p class="body-dark" style="font-size:16px; max-width:580px; margin-bottom:48px;">Три блока. Каждый решает свою задачу. Вместе это полная система управления капиталом в крипте.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; margin-bottom:48px;">
+
+      <div class="card-dark" style="border-left:3px solid #FA660F;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#FA660F; margin-bottom:12px;">1С. Стратегия</div>
+        <p style="font-size:14px; color:rgba(255,255,255,0.7); margin-bottom:20px;">Зачем ты инвестируешь. Во что. Какой горизонт. Сколько готов потерять. Что делать при падении и росте активов на 50%. После этого блока тебя можно разбудить ночью, а ты без промедления скажешь, что в портфеле и почему ты спокоен.</p>
+        <div style="background:rgba(255,255,255,0.04); border-radius:6px; padding:12px 16px; font-size:13px; color:rgba(255,255,255,0.5); font-style:italic;">
+          «Пришла с нуля, теперь точно знаю что в портфеле и почему». Карина, 51 год
+        </div>
+      </div>
+
+      <div class="card-dark" style="border-left:3px solid #FA660F;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#FA660F; margin-bottom:12px;">2С. Структура</div>
+        <p style="font-size:14px; color:rgba(255,255,255,0.7); margin-bottom:20px;">Какие активы покупать, в каких пропорциях, как использовать в DeFi. Пулы, стейкинг, лендинг, залоги. Полный арсенал. Активы не лежат мёртвым грузом, они работают и приносят пассивный доход.</p>
+        <div style="background:rgba(255,255,255,0.04); border-radius:6px; padding:12px 16px; font-size:13px; color:rgba(255,255,255,0.5); font-style:italic;">
+          «$236К на кошельке → +$2&nbsp;271 за 20 дней в DeFi»
+        </div>
+      </div>
+
+      <div class="card-dark" style="border-left:3px solid #FA660F;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#FA660F; margin-bottom:12px;">3С. Синдикат</div>
+        <p style="font-size:14px; color:rgba(255,255,255,0.7); margin-bottom:20px;">Обучение это вход. Синдикат это то, ради чего ты проходишь программу. Закрытое сообщество практиков, где я делюсь действиями в реальном времени, участники находят возможности вместе, а AI-аналитик Фидель мониторит рынок 24/7.</p>
+        <div style="background:rgba(255,255,255,0.04); border-radius:6px; padding:12px 16px; font-size:13px; color:rgba(255,255,255,0.5); font-style:italic;">
+          «1.8 млн ₽ суммарно на разных направлениях». Надежда
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;">
+      <a href="#pricing" class="btn-primary btn-primary-lg">Начать обучение →</a>
+      <p class="btn-sub">Беспроцентная рассрочка</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BLOCK 5 · ПРОГРАММА 17 УРОКОВ — LIGHT
+════════════════════════════════════════ -->
+<section class="section section-light">
+  <div class="container">
+
+    <p class="section-label">Программа</p>
+    <h2 style="color:#1a1a1a; margin-bottom:8px;">8 модулей. 17 уроков.<br>От стратегии до работающего портфеля.</h2>
+    <p class="body-light" style="font-size:15px; margin-bottom:48px;">Нажми на модуль, раскроется подробная программа</p>
+
+    <!-- Модуль 1 -->
+    <div style="margin-bottom:12px; border:1px solid #e0e0e0; border-radius:8px; overflow:hidden;">
+      <div onclick="toggleModule(this)" style="padding:20px 24px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:#fff;">
+        <div>
+          <div class="module-tag" style="border-color:#FA660F; color:#FA660F; margin-bottom:0; margin-right:12px; display:inline-block;">Модуль 1</div>
+          <span style="font-weight:600; color:#1a1a1a;">Фундамент<br><span style="font-weight:400; font-size:13px; color:#888;">Уроки 1–2</span></span>
+        </div>
+        <i class="fa-solid fa-chevron-down" style="color:#FA660F; transition:transform .3s;"></i>
+      </div>
+      <div class="module-body" style="max-height:0; overflow:hidden; transition:max-height .35s ease;">
+        <div style="padding:0 24px 24px; background:#f9f9f9;">
+          <p style="color:#444; font-size:15px; margin-bottom:12px;">Инвестиционная стратегия. Сколько выделить, какой горизонт, уровень риска. Как безопасно покупать крипту и хранить на кошельке.</p>
+          <div style="background:#FA660F; color:#fff; display:inline-block; font-size:12px; font-weight:600; padding:4px 12px; border-radius:4px;">Результат: персональный финансовый план</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модуль 2 -->
+    <div style="margin-bottom:12px; border:1px solid #e0e0e0; border-radius:8px; overflow:hidden;">
+      <div onclick="toggleModule(this)" style="padding:20px 24px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:#fff;">
+        <div>
+          <div class="module-tag" style="border-color:#FA660F; color:#FA660F; margin-bottom:0; margin-right:12px; display:inline-block;">Модуль 2</div>
+          <span style="font-weight:600; color:#1a1a1a;">Блокчейн и стейблкоины<br><span style="font-weight:400; font-size:13px; color:#888;">Уроки 3–4</span></span>
+        </div>
+        <i class="fa-solid fa-chevron-down" style="color:#FA660F; transition:transform .3s;"></i>
+      </div>
+      <div class="module-body" style="max-height:0; overflow:hidden; transition:max-height .35s ease;">
+        <div style="padding:0 24px 24px; background:#f9f9f9;">
+          <p style="color:#444; font-size:15px; margin-bottom:12px;">Как работает блокчейн. Виды стейблкоинов и их риски. Экосистемы Ethereum, Solana, L2.</p>
+          <div style="background:#FA660F; color:#fff; display:inline-block; font-size:12px; font-weight:600; padding:4px 12px; border-radius:4px;">Результат: понимаешь где живут деньги в крипте</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модуль 3 -->
+    <div style="margin-bottom:12px; border:1px solid #e0e0e0; border-radius:8px; overflow:hidden;">
+      <div onclick="toggleModule(this)" style="padding:20px 24px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:#fff;">
+        <div>
+          <div class="module-tag" style="border-color:#FA660F; color:#FA660F; margin-bottom:0; margin-right:12px; display:inline-block;">Модуль 3</div>
+          <span style="font-weight:600; color:#1a1a1a;">DEX и навигация<br><span style="font-weight:400; font-size:13px; color:#888;">Уроки 5–6</span></span>
+        </div>
+        <i class="fa-solid fa-chevron-down" style="color:#FA660F; transition:transform .3s;"></i>
+      </div>
+      <div class="module-body" style="max-height:0; overflow:hidden; transition:max-height .35s ease;">
+        <div style="padding:0 24px 24px; background:#f9f9f9;">
+          <p style="color:#444; font-size:15px; margin-bottom:12px;">Свопы, AMM, мосты между сетями. Как перемещать активы безопасно и дёшево.</p>
+          <div style="background:#FA660F; color:#fff; display:inline-block; font-size:12px; font-weight:600; padding:4px 12px; border-radius:4px;">Результат: свободно работаешь с любой DeFi-платформой</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модуль 4 -->
+    <div style="margin-bottom:12px; border:1px solid #e0e0e0; border-radius:8px; overflow:hidden;">
+      <div onclick="toggleModule(this)" style="padding:20px 24px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:#fff;">
+        <div>
+          <div class="module-tag" style="border-color:#FA660F; color:#FA660F; margin-bottom:0; margin-right:12px; display:inline-block;">Модуль 4</div>
+          <span style="font-weight:600; color:#1a1a1a;">Пулы ликвидности<br><span style="font-weight:400; font-size:13px; color:#888;">Уроки 7–9</span></span>
+        </div>
+        <i class="fa-solid fa-chevron-down" style="color:#FA660F; transition:transform .3s;"></i>
+      </div>
+      <div class="module-body" style="max-height:0; overflow:hidden; transition:max-height .35s ease;">
+        <div style="padding:0 24px 24px; background:#f9f9f9;">
+          <p style="color:#444; font-size:15px; margin-bottom:12px;">Как работают LP, impermanent loss, автоматизация через Revert. Три урока вглубь: от «открыл первый пул» до «управляю позициями осознанно».</p>
+          <div style="background:#FA660F; color:#fff; display:inline-block; font-size:12px; font-weight:600; padding:4px 12px; border-radius:4px;">Результат: умеешь выбирать пулы, считать доходность, управлять рисками</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модуль 5 -->
+    <div style="margin-bottom:12px; border:1px solid #e0e0e0; border-radius:8px; overflow:hidden;">
+      <div onclick="toggleModule(this)" style="padding:20px 24px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:#fff;">
+        <div>
+          <div class="module-tag" style="border-color:#FA660F; color:#FA660F; margin-bottom:0; margin-right:12px; display:inline-block;">Модуль 5</div>
+          <span style="font-weight:600; color:#1a1a1a;">Лендинг и залоги<br><span style="font-weight:400; font-size:13px; color:#888;">Уроки 10–11</span></span>
+        </div>
+        <i class="fa-solid fa-chevron-down" style="color:#FA660F; transition:transform .3s;"></i>
+      </div>
+      <div class="module-body" style="max-height:0; overflow:hidden; transition:max-height .35s ease;">
+        <div style="padding:0 24px 24px; background:#f9f9f9;">
+          <p style="color:#444; font-size:15px; margin-bottom:12px;">AAVE, Health Factor, стратегии looping. Как заложить ETH, взять займ и купить долю в бизнесе, не продавая актив. 4 стратегии с разным уровнем риска.</p>
+          <div style="background:#FA660F; color:#fff; display:inline-block; font-size:12px; font-weight:600; padding:4px 12px; border-radius:4px;">Результат: активы работают в двух направлениях одновременно</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модуль 6 -->
+    <div style="margin-bottom:12px; border:1px solid #e0e0e0; border-radius:8px; overflow:hidden;">
+      <div onclick="toggleModule(this)" style="padding:20px 24px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:#fff;">
+        <div>
+          <div class="module-tag" style="border-color:#FA660F; color:#FA660F; margin-bottom:0; margin-right:12px; display:inline-block;">Модуль 6</div>
+          <span style="font-weight:600; color:#1a1a1a;">Стейкинг и агрегаторы<br><span style="font-weight:400; font-size:13px; color:#888;">Уроки 12–13</span></span>
+        </div>
+        <i class="fa-solid fa-chevron-down" style="color:#FA660F; transition:transform .3s;"></i>
+      </div>
+      <div class="module-body" style="max-height:0; overflow:hidden; transition:max-height .35s ease;">
+        <div style="padding:0 24px 24px; background:#f9f9f9;">
+          <p style="color:#444; font-size:15px; margin-bottom:12px;">Lido, stETH, ликвидный стейкинг. Агрегаторы: Beefy, Yearn. Автоматизация доходности.</p>
+          <div style="background:#FA660F; color:#fff; display:inline-block; font-size:12px; font-weight:600; padding:4px 12px; border-radius:4px;">Результат: портфель приносит максимальный доход с минимумом ручных действий</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модуль 7 -->
+    <div style="margin-bottom:12px; border:1px solid #e0e0e0; border-radius:8px; overflow:hidden;">
+      <div onclick="toggleModule(this)" style="padding:20px 24px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:#fff;">
+        <div>
+          <div class="module-tag" style="border-color:#FA660F; color:#FA660F; margin-bottom:0; margin-right:12px; display:inline-block;">Модуль 7</div>
+          <span style="font-weight:600; color:#1a1a1a;">Безопасность<br><span style="font-weight:400; font-size:13px; color:#888;">Урок 14</span></span>
+        </div>
+        <i class="fa-solid fa-chevron-down" style="color:#FA660F; transition:transform .3s;"></i>
+      </div>
+      <div class="module-body" style="max-height:0; overflow:hidden; transition:max-height .35s ease;">
+        <div style="padding:0 24px 24px; background:#f9f9f9;">
+          <p style="color:#444; font-size:15px; margin-bottom:12px;">Риски DeFi. Как проверять контракты. Revoke.cash, страхование через Nexus Mutual. Чек-лист безопасности.</p>
+          <div style="background:#FA660F; color:#fff; display:inline-block; font-size:12px; font-weight:600; padding:4px 12px; border-radius:4px;">Результат: защищён от 99% типичных ошибок и атак</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модуль 8 -->
+    <div style="margin-bottom:40px; border:1px solid #FA660F; border-radius:8px; overflow:hidden;">
+      <div onclick="toggleModule(this)" style="padding:20px 24px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:rgba(250,102,15,0.03);">
+        <div>
+          <div class="module-tag" style="margin-bottom:0; margin-right:12px; display:inline-block;">Модуль 8</div>
+          <span style="font-weight:700; color:#1a1a1a;">⭐ Сборка системы<br><span style="font-weight:400; font-size:13px; color:#888;">Уроки 15–17</span></span>
+        </div>
+        <i class="fa-solid fa-chevron-down" style="color:#FA660F; transition:transform .3s;"></i>
+      </div>
+      <div class="module-body" style="max-height:0; overflow:hidden; transition:max-height .35s ease;">
+        <div style="padding:0 24px 24px; background:#f9f9f9;">
+          <p style="color:#444; font-size:15px; margin-bottom:12px;">Итоговый проект. Собираем полный DeFi-портфель: стратегия + структура + инструменты. Разбор портфелей участников. Вход в Синдикат.</p>
+          <div style="background:#FA660F; color:#fff; display:inline-block; font-size:12px; font-weight:600; padding:4px 12px; border-radius:4px;">Результат: работающая система пассивного дохода</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="#pricing" class="btn-primary btn-primary-lg">Начать обучение →</a>
+      <p class="btn-sub-light">Беспроцентная рассрочка доступна</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BLOCK 6 · СИНДИКАТ — DARK
+════════════════════════════════════════ -->
+<section class="section section-dark">
+  <div class="container">
+
+    <p class="section-label">DeFi Синдикат</p>
+    <h2 style="margin-bottom:12px;">Обучение это вход. Синдикат это то, что работает годами.</h2>
+    <p class="body-dark" style="font-size:16px; max-width:600px; margin-bottom:48px;">Программа даёт навык. Синдикат даёт среду, где этот навык приносит деньги.<br>Вот что внутри.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; margin-bottom:48px;">
+
+      <div class="card-dark">
+        <div class="icon-box icon-box-dark" style="margin-bottom:16px;"><i class="fa-solid fa-eye"></i></div>
+        <h3 style="margin-bottom:10px;">Мои действия в реальном времени</h3>
+        <p style="font-size:14px; color:rgba(255,255,255,0.55); margin-bottom:16px;">Я выкладываю в какие пулы захожу, какие проекты отбираю, как управляю портфелем. Не постфактум, прямо когда принимаю решение. Ты видишь логику, а не только результат.</p>
+        <div class="syndicate-gallery" style="display:flex; gap:14px; overflow-x:auto; -webkit-overflow-scrolling:touch; scroll-snap-type:x mandatory; padding-bottom:8px;">
+          <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+            <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000;">
+              <img src="syndicate-research-bittensor.jpg" alt="Research Bittensor" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;">
+            </div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.5); margin:8px 0 0;">Research проекта Bittensor</p>
+            <p style="font-size:11px; color:rgba(255,255,255,0.25); margin:2px 0 0;">Листай →</p>
+          </div>
+          <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+            <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000;">
+              <img src="syndicate-research-result.jpg" alt="Инвестиционное решение" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;">
+            </div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.5); margin:8px 0 0;">Инвестиционное решение: доли, риски, инструкция</p>
+          </div>
+          <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+            <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000;">
+              <img src="syndicate-events.jpg" alt="События" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;">
+            </div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.5); margin:8px 0 0;">Запланированные разборы проектов для портфеля</p>
+          </div>
+          <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+            <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000;">
+              <img src="syndicate-materials.jpg" alt="Материалы" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;">
+            </div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.5); margin:8px 0 0;">Материалы эфиров в записи с таймкодами</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-dark">
+        <div class="icon-box icon-box-dark" style="margin-bottom:16px;"><i class="fa-solid fa-users"></i></div>
+        <h3 style="margin-bottom:10px;">Совместный поиск возможностей</h3>
+        <p style="font-size:14px; color:rgba(255,255,255,0.55);">Участники Синдиката, люди, которые прошли ту же программу и владеют Системой. Вместе анализируем проекты, делимся находками, заходим в ICO и новые протоколы.</p>
+        <div style="display:flex; gap:14px; overflow-x:auto; -webkit-overflow-scrolling:touch; scroll-snap-type:x mandatory; padding:16px 0 8px; margin-top:12px;">
+          <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+            <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000;"><img src="syndicate-plasma-ico.jpg" alt="ICO Plasma" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.5); margin:8px 0 0;">ICO Plasma: x14.6</p>
+            <p style="font-size:11px; color:rgba(255,255,255,0.25); margin:2px 0 0;">Листай →</p>
+          </div>
+          <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+            <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000;"><img src="syndicate-plasma-review.jpg" alt="Отзыв" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.5); margin:8px 0 0;">Отзыв: первые иксы с $500</p>
+          </div>
+          <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+            <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000;"><img src="syndicate-dmitry-159.jpg" alt="159%" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.5); margin:8px 0 0;">Дмитрий: 159% APR</p>
+          </div>
+          <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+            <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000;"><img src="syndicate-edgex.jpg" alt="EdgeX" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.5); margin:8px 0 0;">Закрытое предложение: EdgeX</p>
+          </div>
+          <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+            <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000;"><img src="syndicate-closed-offer.jpg" alt="Закрытое предложение" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.5); margin:8px 0 0;">Закрытое ICO для участников</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-dark">
+        <div class="icon-box icon-box-dark" style="margin-bottom:16px;"><i class="fa-solid fa-robot"></i></div>
+        <h3 style="margin-bottom:10px;">AI-аналитик Фидель</h3>
+        <p style="font-size:14px; color:rgba(255,255,255,0.55); margin-bottom:16px;">Подключён к DeFi Llama, Dune, CMC. Анализирует доходности, оценивает риски, отвечает на вопросы 24/7. Инструмент, который работает на каждого участника.</p>
+        <div style="display:flex; gap:14px; overflow-x:auto; -webkit-overflow-scrolling:touch; scroll-snap-type:x mandatory; padding-bottom:8px;">
+          <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+            <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000;"><img src="fidel-skills.jpg" alt="Фидель" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.5); margin:8px 0 0;">Что умеет Фидель</p>
+            <p style="font-size:11px; color:rgba(255,255,255,0.25); margin:2px 0 0;">Листай →</p>
+          </div>
+          <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+            <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000;"><img src="fidel-digest.jpg" alt="Дайджест" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.5); margin:8px 0 0;">Дайджест Синдиката</p>
+          </div>
+          <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+            <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000;"><img src="fidel-news.jpg" alt="Новости" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.5); margin:8px 0 0;">Отвечает на вопросы</p>
+          </div>
+          <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+            <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000;"><img src="fidel-help.jpg" alt="Помощь" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.5); margin:8px 0 0;">Помогает в сложных ситуациях</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-dark">
+        <div class="icon-box icon-box-dark" style="margin-bottom:16px;"><i class="fa-solid fa-infinity"></i></div>
+        <h3 style="margin-bottom:10px;">Логичное продолжение пути</h3>
+        <p style="font-size:14px; color:rgba(255,255,255,0.55); margin-bottom:16px;">Синдикат это логичное продолжение начала твоего пути в DeFi. Рынок живой, каждую неделю появляются новые возможности, проекты, инструменты. Синдикат это среда, где ты их не пропускаешь.</p>
+        <div style="display:flex; gap:14px; overflow-x:auto; -webkit-overflow-scrolling:touch; scroll-snap-type:x mandatory; padding-bottom:8px;">
+          <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+            <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000;"><img src="fidel-syndicate-result.jpg" alt="Результат Синдиката" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+            <p style="font-size:12px; color:rgba(255,255,255,0.5); margin:8px 0 0;">Что получит участник Синдиката</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;">
+      <a href="#pricing" class="btn-primary btn-primary-lg">Начать обучение →</a>
+      <p class="btn-sub">Беспроцентная рассрочка</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BLOCK 7 · ФОРМАТ ОБУЧЕНИЯ — LIGHT
+════════════════════════════════════════ -->
+<section class="section section-light">
+  <div class="container">
+
+    <p class="section-label">Формат</p>
+    <h2 style="color:#1a1a1a; margin-bottom:12px;">«Крипта по-взрослому». Не видеокурс, а система, где тебя ведут <span class="accent">до результата</span>.</h2>
+    <p class="body-light" style="font-size:15px; margin-bottom:48px;">Вот что происходит после оплаты, шаг за шагом.</p>
+
+    <div style="display:flex; flex-direction:column; gap:24px; margin-bottom:48px;">
+
+      <div class="card-light" style="display:flex; gap:20px; align-items:flex-start; overflow:hidden;">
+        <div class="step-num">1</div>
+        <div>
+          <h3 style="color:#1a1a1a; margin-bottom:8px;">Создаём твой персональный чат</h3>
+          <p style="font-size:15px; color:#555; margin-bottom:16px;">Сразу после оплаты создаётся закрытый Telegram-чат. В нём ты, я (Сергей), куратор и Фидель.</p>
+          <div style="background:#0e1621; border-radius:12px; padding:16px; max-width:340px; font-size:14px;">
+            <div style="margin-bottom:12px;">
+              <div style="font-size:11px; color:#5b9bd5; font-weight:600; margin-bottom:4px;">Сергей</div>
+              <div style="background:#2b5278; color:#fff; padding:8px 12px; border-radius:0 12px 12px 12px; display:inline-block;">Привет! Рад видеть, что ты подключился к программе! 🚀</div>
+            </div>
+            <div style="margin-bottom:12px;">
+              <div style="font-size:11px; color:#e07d39; font-weight:600; margin-bottom:4px;">Куратор</div>
+              <div style="background:#2b5278; color:#fff; padding:8px 12px; border-radius:0 12px 12px 12px; display:inline-block;">Привет! Я буду помогать тебе по программе и техническим вопросам 👋</div>
+            </div>
+            <div>
+              <div style="font-size:11px; color:#8774e1; font-weight:600; margin-bottom:4px;">🤖 Фидель</div>
+              <div style="background:#2b5278; color:#fff; padding:8px 12px; border-radius:0 12px 12px 12px; display:inline-block;">Привет! Я твой AI-помощник. Обращайся по любым вопросам 💬</div>
+            </div>
+          </div>
+          <p style="font-size:14px; color:#888;">Это твоё пространство. Все вопросы, задания, обратная связь здесь.</p>
+        </div>
+      </div>
+
+      <div class="card-light" style="display:flex; gap:20px; align-items:flex-start; overflow:hidden;">
+        <div class="step-num">2</div>
+        <div style="min-width:0; flex:1; overflow:hidden;">
+          <h3 style="color:#1a1a1a; margin-bottom:8px;">Попадаешь в закрытый канал учеников</h3>
+          <p style="font-size:15px; color:#555; margin-bottom:16px;">Помимо персонального чата ты добавляешься в общий Telegram-канал участников. Дополнительные материалы, которые я считаю полезными для более лёгкого развития в DeFi и криптовалюте.</p>
+          <div style="display:flex; gap:14px; overflow-x:auto; -webkit-overflow-scrolling:touch; scroll-snap-type:x mandatory; padding-bottom:8px;">
+            <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+              <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #ddd; background:#fff;"><img src="channel-btc-pension.jpg" alt="BTC" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+              <p style="font-size:12px; color:#888; margin:8px 0 0;">Стратегия накопления капитала на BTC</p>
+              <p style="font-size:11px; color:#bbb; margin:2px 0 0;">Листай →</p>
+            </div>
+            <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+              <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #ddd; background:#fff;"><img src="channel-saylor-btc.jpg" alt="Saylor" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+              <p style="font-size:12px; color:#888; margin:8px 0 0;">Разбор: почему фонды скупают BTC</p>
+            </div>
+            <div style="min-width:200px; max-width:200px; flex-shrink:0; scroll-snap-align:start;">
+              <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #ddd; background:#fff;"><img src="channel-eth-research.jpg" alt="ETH research" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+              <p style="font-size:12px; color:#888; margin:8px 0 0;">Исследование: ETH как общественное благо</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-light" style="display:flex; gap:20px; align-items:flex-start; overflow:hidden;">
+        <div class="step-num">3</div>
+        <div>
+          <h3 style="color:#1a1a1a; margin-bottom:8px;">Получаешь первый урок и онбординг</h3>
+          <p style="font-size:15px; color:#555; margin-bottom:16px;">В чат приходит первый урок. Без воды, сразу к делу.</p>
+          <div style="background:#0e1621; border-radius:12px; padding:16px; max-width:340px;">
+            <div style="margin-bottom:14px;">
+              <div style="font-size:11px; color:#5b9bd5; font-weight:600; margin-bottom:6px;">Сергей</div>
+              <div style="background:#1a1a2e; border-radius:12px; overflow:hidden; margin-bottom:8px;">
+                <div style="background:#222; padding:32px 0; text-align:center; position:relative;">
+                  <div style="width:48px; height:48px; background:rgba(250,102,15,0.2); border:2px solid #FA660F; border-radius:50%; display:inline-flex; align-items:center; justify-content:center;">
+                    <i class="fa-solid fa-play" style="color:#FA660F; font-size:18px; margin-left:3px;"></i>
+                  </div>
+                  <p style="font-size:11px; color:rgba(255,255,255,0.4); margin:8px 0 0;">Урок 1 · 12:34</p>
+                </div>
+              </div>
+              <div style="background:#2b5278; color:#fff; padding:8px 12px; border-radius:0 12px 12px 12px; display:inline-block; font-size:14px;">Проходи урок и выполни практическое задание ✅</div>
+            </div>
+          </div>
+          <p style="font-size:14px; color:#888; margin-top:12px;">Посмотрел, сделал, отправил в чат. Я или куратор проверяем и даём обратную связь.</p>
+        </div>
+      </div>
+
+      <div class="card-light" style="display:flex; gap:20px; align-items:flex-start; overflow:hidden;">
+        <div class="step-num">4</div>
+        <div>
+          <h3 style="color:#1a1a1a; margin-bottom:8px;">Проходишь в своём темпе</h3>
+          <p style="font-size:15px; color:#555;">Нет дедлайнов типа «урок сгорает через 3 дня». Смотришь когда удобно. Но темп есть: после выполнения задания открывается следующий урок.</p>
+          <p style="font-size:14px; color:#888; margin-top:8px; margin-bottom:16px;">Застрял? Пишешь вопрос в чат. Я или куратор ответим. Фидель доступен мгновенно.</p>
+          <div style="background:#0e1621; border-radius:12px; padding:16px; max-width:340px;">
+            <div style="margin-bottom:10px;">
+              <div style="background:#182533; color:rgba(255,255,255,0.6); padding:8px 12px; border-radius:12px 12px 12px 0; display:inline-block; font-size:13px;">Как правильно выбрать диапазон для пула?</div>
+            </div>
+            <div>
+              <div style="font-size:11px; color:#8774e1; font-weight:600; margin-bottom:4px;">🤖 Фидель</div>
+              <div style="background:#2b5278; color:#fff; padding:8px 12px; border-radius:0 12px 12px 12px; display:inline-block; font-size:13px;">Зависит от пары и волатильности. Для стейблов узкий, для ETH/BTC шире. Подробно в уроке 7 📚</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-light" style="display:flex; gap:20px; align-items:flex-start; overflow:hidden;">
+        <div class="step-num">5</div>
+        <div>
+          <h3 style="color:#1a1a1a; margin-bottom:8px;">Если затих, мы напишем первыми</h3>
+          <p style="font-size:15px; color:#555;">Не появлялся 3 дня? Куратор напишет: «Как дела? На чём остановился?» Не для галочки, потому что видим на каком уроке ты и что может быть непонятно.</p>
+          <p style="font-size:14px; color:#888; margin-top:8px; margin-bottom:16px;">Мы не продаём тебе курс и не забываем. Мы ведём до результата.</p>
+          <div style="background:#0e1621; border-radius:12px; padding:16px; max-width:340px;">
+            <div>
+              <div style="font-size:11px; color:#e07d39; font-weight:600; margin-bottom:4px;">Куратор</div>
+              <div style="background:#2b5278; color:#fff; padding:8px 12px; border-radius:0 12px 12px 12px; display:inline-block; font-size:13px;">Привет! Как дела? В чём сложности? Какие есть вопросы? 🙌</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-light" style="display:flex; gap:20px; align-items:flex-start; overflow:hidden;">
+        <div class="step-num">6</div>
+        <div>
+          <h3 style="color:#1a1a1a; margin-bottom:8px;">Собираешь портфель под контролем</h3>
+          <p style="font-size:15px; color:#555; margin-bottom:16px;">К урокам 15–17 ты собираешь полный DeFi-портфель. Не в теории, реальные позиции с реальными деньгами.</p>
+          <div style="background:#0e1621; border-radius:12px; padding:16px; max-width:340px;">
+            <div style="margin-bottom:10px;">
+              <div style="background:#182533; color:rgba(255,255,255,0.6); padding:8px 12px; border-radius:12px 12px 12px 0; display:inline-block; font-size:13px;">А если добавить AAVE и стейкинг ETH?</div>
+            </div>
+            <div>
+              <div style="font-size:11px; color:#5b9bd5; font-weight:600; margin-bottom:4px;">Сергей</div>
+              <div style="background:#2b5278; color:#fff; padding:8px 12px; border-radius:0 12px 12px 12px; display:inline-block; font-size:13px;">Давай рассмотрим. Под твою стратегию можно 20% в AAVE + 15% в stETH. Вот почему... 📊</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-light" style="display:flex; gap:20px; align-items:flex-start; border-color:#FA660F;">
+        <div class="step-num">7</div>
+        <div>
+          <h3 style="color:#1a1a1a; margin-bottom:8px;">Получаешь доступ в Синдикат</h3>
+          <p style="font-size:15px; color:#555; margin-bottom:16px;">При 70% выполненных ДЗ открывается доступ в DeFi Синдикат.</p>
+          <div style="background:#0e1621; border-radius:12px; padding:16px; max-width:340px;">
+            <div>
+              <div style="font-size:11px; color:#5b9bd5; font-weight:600; margin-bottom:4px;">Сергей</div>
+              <div style="background:#2b5278; color:#fff; padding:8px 12px; border-radius:0 12px 12px 12px; display:inline-block; font-size:13px;">Поздравляю! 🎉 Ты выполнил 70% ДЗ, большой молодец! Тебе открыт доступ в Синдикат. Будем очень рады тебя там видеть 🚀</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="background:#f9f9f9; border:1px solid #e0e0e0; border-radius:8px; padding:32px; text-align:center;">
+      <p style="font-size:17px; font-weight:600; color:#1a1a1a; margin-bottom:8px;">Итог: через несколько недель у тебя</p>
+      <p style="font-size:15px; color:#555;">Персональная стратегия · Работающий портфель · Доход в долларах · Закрытое сообщество</p>
+      <p style="font-size:14px; color:#FA660F; font-weight:600; margin-top:8px;">Навык, который работает годами</p>
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="#pricing" class="btn-primary btn-primary-lg">Начать обучение →</a>
+      <p class="btn-sub-light">Беспроцентная рассрочка доступна</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BLOCK 8 · ФИДЕЛЬ AI — DARK
+════════════════════════════════════════ -->
+<section class="section section-dark">
+  <div class="container">
+
+    <p class="section-label">AI-аналитик</p>
+    <h2 style="margin-bottom:12px;">Фидель. Твой <span class="accent">персональный AI-аналитик</span>. Работает в твоём чате с первого дня.</h2>
+    <p class="body-dark" style="font-size:16px; max-width:600px; margin-bottom:48px;">Фидель не ChatGPT. Это инструмент, подключённый к реальным данным DeFi-рынка и заточенный под программу обучения.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px; margin-bottom:48px;">
+
+      <div class="card-dark">
+        <div class="icon-box icon-box-dark" style="margin-bottom:16px;"><i class="fa-solid fa-chart-line"></i></div>
+        <h3 style="margin-bottom:8px;">Анализ доходностей</h3>
+        <p style="font-size:14px; color:rgba(255,255,255,0.55);">Подключён к DeFi Llama. Спроси «где лучшая доходность на стейблах?», получишь ответ с цифрами и ссылками. Не гугли часами.</p><div style="width:180px; height:320px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000; margin-top:14px;"><img src="fidel-yield.jpg" alt="Анализ" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+      </div>
+
+      <div class="card-dark">
+        <div class="icon-box icon-box-dark" style="margin-bottom:16px;"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3 style="margin-bottom:8px;">Оценка рисков</h3>
+        <p style="font-size:14px; color:rgba(255,255,255,0.55);">Подключён к Dune Analytics. «Безопасен ли этот протокол?», покажет TVL, аудиты, историю. Не лезешь в непроверенное вслепую.</p><div style="width:180px; height:320px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000; margin-top:14px;"><img src="fidel-risk.jpg" alt="Риски" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+      </div>
+
+      <div class="card-dark">
+        <div class="icon-box icon-box-dark" style="margin-bottom:16px;"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3 style="margin-bottom:8px;">Помощь по урокам</h3>
+        <p style="font-size:14px; color:rgba(255,255,255,0.55);">Знает всю программу КПВ. Не понял тему, спроси Фиделя. Объяснит простым языком, покажет пример, подскажет где в уроке искать ответ.</p><div style="width:180px; height:320px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000; margin-top:14px;"><img src="fidel-lesson.jpg" alt="Урок" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+      </div>
+
+      <div class="card-dark">
+        <div class="icon-box icon-box-dark" style="margin-bottom:16px;"><i class="fa-solid fa-calculator"></i></div>
+        <h3 style="margin-bottom:8px;">Персональные расчёты</h3>
+        <p style="font-size:14px; color:rgba(255,255,255,0.55);">Посчитает доходность позиции, сравнит стратегии, прикинет финплан. Не нужно разбираться в формулах, задай вопрос словами, получишь цифры.</p><div style="width:180px; height:320px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000; margin-top:14px;"><img src="fidel-calc.jpg" alt="Расчёт" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+      </div>
+
+      <div class="card-dark">
+        <div class="icon-box icon-box-dark" style="margin-bottom:16px;"><i class="fa-solid fa-coins"></i></div>
+        <h3 style="margin-bottom:8px;">Финансовый помощник</h3>
+        <p style="font-size:14px; color:rgba(255,255,255,0.55);">Не только крипта. Налоги на крипту в РФ, распределение капитала, сравнение DeFi с традиционными инструментами. От вкладов до DeFi.</p><div style="width:180px; height:320px; border-radius:12px; overflow:hidden; border:2px solid #333; background:#000; margin-top:14px;"><img src="fidel-finance.jpg" alt="Финансы" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BLOCK 9 · РЕЗУЛЬТАТЫ — LIGHT
+════════════════════════════════════════ -->
+<section class="section section-light">
+  <div class="container">
+
+    <p class="section-label">Результаты</p>
+    <h2 style="color:#1a1a1a; margin-bottom:12px;">Результаты участников</h2>
+
+    <div style="background:#FA660F; color:#fff; display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border-radius:6px; font-weight:700; font-size:16px; margin-bottom:40px;">
+      <i class="fa-solid fa-star"></i> Средняя оценка 9.5 из 10
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; margin-bottom:48px;">
+
+      <div class="card-light" style="border-left:3px solid #FA660F;">
+        <div style="font-size:28px; font-weight:700; color:#FA660F; margin-bottom:8px;">+$2&nbsp;271</div>
+        <p style="font-size:15px; font-weight:600; color:#1a1a1a; margin-bottom:8px;">$236К на кошельке → за 20 дней в DeFi</p>
+        <p style="font-size:13px; color:#888; margin-bottom:14px;">Участник пришёл с задачей: разместить стейблы безопасно, с возможностью вытащить в любой момент. Через 20 дней доходность 17% годовых, +$2 271 или 193 000 рублей. Ничего не делал, кроме как подглядывал в монитор.</p>
+        <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #ddd; background:#fff; margin-top:14px;"><img src="case-236k.jpg" alt="Кейс $236К" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+      </div>
+
+      <div class="card-light" style="border-left:3px solid #FA660F;">
+        <div style="font-size:28px; font-weight:700; color:#FA660F; margin-bottom:8px;">~58% годовых</div>
+        <p style="font-size:15px; font-weight:600; color:#1a1a1a; margin-bottom:8px;">Участники делятся результатами в чате</p>
+        <p style="font-size:13px; color:#888; margin-bottom:14px;">+4% за 25 дней на стейбл-пуле = ~58% годовых. Реальная переписка, реальные цифры, реальные эмоции.</p>
+        <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #ddd; background:#fff;"><img src="case-236k-chat.jpg" alt="Чат" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+      </div>
+
+
+
+      <div class="card-light" style="border-left:3px solid #FA660F;">
+        <div style="font-size:28px; font-weight:700; color:#FA660F; margin-bottom:8px;">1.8 млн ₽</div>
+        <p style="font-size:15px; font-weight:600; color:#1a1a1a; margin-bottom:8px;">Надежда. Суммарно на разных направлениях</p>
+        <p style="font-size:13px; color:#888; margin-bottom:14px;">Одна из старожилов Синдиката. Заработала: WormHole 1 500 000 ₽, коты 270 000 ₽, NotCoin 35 000 ₽, Drift 18 000 ₽, ICO Binance +954%. Начинала с минимальных сумм.</p>
+        <div style="width:200px; height:360px; border-radius:12px; overflow:hidden; border:2px solid #ddd; background:#fff;"><img src="case-nadezhda.jpg" alt="Надежда" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"></div>
+      </div>
+
+    </div>
+
+    <!-- Видеоотзывы -->
+    <div style="margin-bottom:48px;">
+      <div style="background:#f4f4f4; border-radius:12px; overflow:hidden; max-width:500px;">
+        <video controls playsinline preload="metadata" style="width:100%; display:block; border-radius:12px;" poster="">
+          <source src="review-karina.mp4" type="video/mp4">
+        </video>
+        <div style="padding:16px;">
+          <p style="font-size:15px; font-weight:600; color:#1a1a1a; margin-bottom:6px;">Карина, 51 год</p>
+          <p style="font-size:13px; color:#888;">Пришла с нулевым опытом в крипте. Прошла программу, собрала портфель и сейчас самостоятельно управляет инвестициями и принимает решения без чьей-либо помощи.</p>
+        </div>
+      </div>
+    </div>
+
+      <div style="background:#f4f4f4; border-radius:12px; overflow:hidden; max-width:500px; margin-top:20px;">
+        <video controls playsinline preload="metadata" style="width:100%; display:block; border-radius:12px;">
+          <source src="review-kristina.mp4" type="video/mp4">
+        </video>
+        <div style="padding:16px;">
+          <p style="font-size:15px; font-weight:600; color:#1a1a1a; margin-bottom:6px;">Кристина</p>
+          <p style="font-size:13px; color:#888;">Прошла программу и начала самостоятельно работать с DeFi-инструментами. Рассказывает, как изменился подход к инвестициям после обучения.</p>
+        </div>
+      </div>
+
+    <!-- Скриншоты обратной связи -->
+    <h3 style="color:#1a1a1a; margin:32px 0 16px; font-size:18px;">Честная обратная связь после обучения</h3>
+
+    <div style="margin-bottom:24px;">
+      <div style="border-radius:12px; overflow:hidden; border:1px solid #ddd;"><img src="review-table-1.jpg" alt="Обратная связь" style="width:100%; display:block;"></div>
+      <p style="font-size:13px; color:#888; margin:10px 0 0;">Таблица с честной обратной связью. Ключевое: структура, глубина, практика, «смотрю на многое по-другому».</p>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <div style="border-radius:12px; overflow:hidden; border:1px solid #ddd;"><img src="review-table-2.jpg" alt="Обратная связь 2" style="width:100%; display:block;"></div>
+      <p style="font-size:13px; color:#888; margin:10px 0 0;">«Криптомир был чёрной дырой, раскрыли всё от А до Я». «Курс полностью оправдал ожидания и даже превзошёл». «Точно буду рекомендовать».</p>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; scroll-snap-type:x mandatory; padding-bottom:8px;">
+        <div style="min-width:260px; max-width:260px; flex-shrink:0; scroll-snap-align:start;">
+          <div style="border-radius:12px; overflow:hidden; border:1px solid #ddd;"><img src="review-long-1a.jpg" alt="Отзыв" style="width:100%; display:block;"></div>
+          <p style="font-size:11px; color:#bbb; margin:6px 0 0;">Листай →</p>
+        </div>
+        <div style="min-width:260px; max-width:260px; flex-shrink:0; scroll-snap-align:start;">
+          <div style="border-radius:12px; overflow:hidden; border:1px solid #ddd;"><img src="review-long-1b.jpg" alt="Отзыв продолжение" style="width:100%; display:block;"></div>
+        </div>
+      </div>
+      <p style="font-size:13px; color:#888; margin:10px 0 0;">Опыт онлайн-обучения с 2009 года, десятки курсов. Оценка 8 из 10. «Проведён на достаточно высоком уровне». «Только 0.02% людей умеют пользоваться DEX, и я вхожу в их число благодаря курсу».</p>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <div style="border-radius:12px; overflow:hidden; border:1px solid #ddd;"><img src="review-table-3.jpg" alt="Отзыв" style="width:100%; display:block;"></div>
+      <p style="font-size:13px; color:#888; margin:10px 0 0;">«Всё простым языком, конкретно и интересно. Понравился многогранный подход». «Пассивный доход в долларах, займы, стейкинг и многое другое».</p>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <div style="border-radius:12px; overflow:hidden; border:1px solid #ddd;"><img src="review-table-4.jpg" alt="Отзыв" style="width:100%; display:block;"></div>
+      <p style="font-size:13px; color:#888; margin:10px 0 0;">«Обучение продумано до мелочей». «Курс открыл глаза на мир криптовалют». «Сергей очень грамотно преподносит и мотивирует».</p>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="#pricing" class="btn-primary btn-primary-lg">Начать обучение →</a>
+      <p class="btn-sub-light">Беспроцентная рассрочка доступна</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BLOCK 10 · БОНУСЫ — DARK
+════════════════════════════════════════ -->
+<section class="section section-dark">
+  <div class="container">
+
+    <p class="section-label">Бонусы</p>
+    <h2 style="margin-bottom:12px;">Что ещё получишь помимо 17 уроков</h2>
+    <p class="body-dark" style="font-size:16px; max-width:600px; margin-bottom:48px;">Бонусов на <span class="accent" style="font-weight:700;">181 000+ ₽</span>, в два с лишним раза больше, чем стоит программа.</p>
+
+    <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:48px;">
+
+      <div class="bonus-card">
+        <div class="bonus-num">1</div>
+        <div style="flex:1; min-width:0;">
+          <h3 style="color:#fff; margin-bottom:8px;">DeFi Синдикат · 1 год доступа</h3>
+          <p style="font-size:14px; color:rgba(255,255,255,0.55); margin-bottom:8px;">Закрытое сообщество практиков. Ресёрч, разборы портфелей, стратегии в реальном времени. Если бы доступ продавался отдельно, минимум 5&nbsp;000&nbsp;₽/мес. Ты получаешь год в рамках обучения.</p>
+          <div class="bonus-price">60&nbsp;000&nbsp;₽</div>
+        </div>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">2</div>
+        <div style="flex:1; min-width:0;">
+          <h3 style="color:#fff; margin-bottom:8px;">AI-аналитик Фидель</h3>
+          <p style="font-size:14px; color:rgba(255,255,255,0.55); margin-bottom:8px;">Это не ChatGPT за $20. Это система, заточенная под DeFi-инфраструктуру и построенная на моём опыте. Чтобы собрать такое самому, минимум $200 на подписки и годы проб и ошибок. Здесь всё готово с первого дня.</p>
+          <div class="bonus-price">50&nbsp;000&nbsp;₽</div>
+        </div>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">3</div>
+        <div style="flex:1; min-width:0;">
+          <h3 style="color:#fff; margin-bottom:8px;">Структура моего портфеля</h3>
+          <p style="font-size:14px; color:rgba(255,255,255,0.55); margin-bottom:8px;">Покажу что у меня в портфеле, в каких пропорциях и почему. Не для копирования, для понимания логики. Я управляю собственным капиталом и делюсь тем, как принимаю решения в реальном времени.</p>
+          <div class="bonus-price">30&nbsp;000&nbsp;₽</div>
+        </div>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">4</div>
+        <div style="flex:1; min-width:0;">
+          <h3 style="color:#fff; margin-bottom:8px;">Финансовый навигатор</h3>
+          <p style="font-size:14px; color:rgba(255,255,255,0.55); margin-bottom:8px;">Доступна сразу после первого урока. Поможет вести учёт: доходы, расходы, сколько откладывать. После первых занятий составишь свою финтаблицу и будешь понимать как с ней работать дальше.</p>
+          <div class="bonus-price">15&nbsp;000&nbsp;₽</div>
+        </div>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">5</div>
+        <div style="flex:1; min-width:0;">
+          <h3 style="color:#fff; margin-bottom:8px;">VPN + Прокси + Инструкция</h3>
+          <p style="font-size:14px; color:rgba(255,255,255,0.55); margin-bottom:8px;">Полный доступ к VPN и прокси для бесперебойной работы с Telegram и DeFi-платформами. Плюс инструкция как поднять свой VPN для всей семьи за 300&nbsp;₽/мес. Его никто никогда не заблокирует.</p>
+          <div class="bonus-price">10&nbsp;000&nbsp;₽</div>
+        </div>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-num">6</div>
+        <div style="flex:1; min-width:0;">
+          <h3 style="color:#fff; margin-bottom:8px;">Стартовый набор DeFi-практика</h3>
+          <p style="font-size:14px; color:rgba(255,255,255,0.55); margin-bottom:8px;">Все таблицы и калькуляторы для ежедневной работы с DeFi, готовые, настроенные, с инструкциями.</p>
+          <div class="bonus-price">16&nbsp;000&nbsp;₽</div>
+        </div>
+      </div>
+
+      <div class="bonus-card" style="border-color:rgba(250,102,15,0.4);">
+        <div class="bonus-num">7</div>
+        <div style="flex:1; min-width:0;">
+          <h3 style="color:#fff; margin-bottom:8px;">Доступ к практику, который управляет собственным капиталом</h3>
+          <p style="font-size:14px; color:rgba(255,255,255,0.55); margin-bottom:8px;">Не теоретик. Каждый день открываю позиции, ребалансирую портфель, ищу новые возможности, ты видишь это изнутри. Решения, логику, ошибки. Это невозможно купить отдельно.</p>
+          <div class="bonus-price" style="color:#FA660F; border-color:rgba(250,102,15,0.3);">Бесценно</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="background:#111; border:1px solid #222; border-radius:8px; padding:28px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:40px;">
+      <div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-bottom:4px;">Итого ценность бонусов</div>
+        <div style="font-size:28px; font-weight:700; color:#fff;">181&nbsp;000&nbsp;₽</div>
+        <div style="font-size:15px; font-weight:400; color:rgba(255,255,255,0.4); margin-top:4px;">+ бесценный доступ к практику</div>
+      </div>
+      <a href="#pricing" class="btn-primary">Получить всё →</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BLOCK 11 · ГАРАНТИЯ — LIGHT
+════════════════════════════════════════ -->
+<section class="section section-light">
+  <div class="container">
+
+    <p class="section-label">Гарантия</p>
+    <h2 style="color:#1a1a1a; margin-bottom:40px;"><span class="accent">Риск на мне.</span> Тебе нужно только делать.</h2>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; margin-bottom:48px;">
+
+      <div class="card-light" style="border-left:3px solid #FA660F;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+          <i class="fa-solid fa-rotate-left" style="font-size:28px; color:#FA660F;"></i>
+          <h3 style="color:#1a1a1a;">Безусловная гарантия. После первых 3 уроков</h3>
+        </div>
+        <p style="font-size:15px; color:#555;">Если после первых трёх уроков ты понимаешь что это не твоё или тебе это не нужно, полный возврат. Без вопросов, без условий. Просто напиши и получишь деньги обратно.</p>
+      </div>
+
+      <div class="card-light" style="border-left:3px solid #FA660F;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+          <i class="fa-solid fa-calculator" style="font-size:28px; color:#FA660F;"></i>
+          <h3 style="color:#1a1a1a;">Перерасчёт на любом этапе</h3>
+        </div>
+        <p style="font-size:15px; color:#555;">Каждый урок имеет свою стоимость. Если на каком-то этапе ты остановился и понял что не хочешь продолжать, делаем перерасчёт. Возврат за непройденные уроки. Честно и прозрачно.</p>
+      </div>
+
+    </div>
+
+    <div style="background:#f9f9f9; border:1px solid #e0e0e0; border-radius:8px; padding:32px; text-align:center;">
+      <p style="font-size:16px; color:#555; max-width:560px; margin:0 auto;">
+        В худшем случае за 3 урока разберёшься что это не твоё, заберёшь деньги и уйдёшь <strong style="color:#1a1a1a;">с бесплатными знаниями</strong>. В лучшем построишь систему пассивного дохода на годы.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BLOCK 12 · О СЕРГЕЕ — DARK
+════════════════════════════════════════ -->
+<section class="section section-dark">
+  <div class="container">
+
+    <div style="max-width:800px; margin:0 auto;">
+
+      <div style="text-align:center; margin-bottom:32px;">
+        <div style="width:200px; height:200px; border-radius:50%; overflow:hidden; margin:0 auto 20px; border:3px solid #333;">
+          <img src="sergey-photo.jpg" alt="Сергей Мухомедзянов" style="width:100%; height:100%; object-fit:cover; object-position:top;">
+        </div>
+        <p class="section-label">Автор программы</p>
+        <h2 style="margin-bottom:20px;">Кто я и почему учу этому</h2>
+      </div>
+
+      <div>
+        <p style="font-size:16px; color:rgba(255,255,255,0.7); margin-bottom:16px;">4+ года в DeFi. Заработал больше 15 млн рублей на DeFi. Провёл сотни диагностических звонков.</p>
+        <p style="font-size:16px; color:rgba(255,255,255,0.7); margin-bottom:16px;">Я не теоретик. Мои результаты верифицируемы моим телеграм-каналом. Каждый день открываю позиции, ребалансирую портфель, ищу новые возможности и делаю это вместе с участниками Синдиката.</p>
+        <p style="font-size:16px; color:rgba(255,255,255,0.7);">Моя Система для тех, кто видит в криптовалюте возможность для увеличения капитала и получения пассивного дохода, но не знает с чего начать.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BLOCK 13 · ЦЕНА — DARK  id=pricing
+════════════════════════════════════════ -->
+<section class="section section-dark" id="pricing">
+  <div class="container">
+
+    <p class="section-label">Инвестиция</p>
+    <h2 style="margin-bottom:12px;"><span class="accent">Инвестиция в навык</span>, который работает годами</h2>
+    <p class="body-dark" style="font-size:16px; max-width:580px; margin-bottom:48px;">Разберись один раз и применяй всю жизнь. Это навык, который можно передать детям. Не подписка, не сигналы, а система управления капиталом на всю жизнь.</p>
+
+    <div class="discount-block" style="max-width:640px; margin:0 auto;">
+
+      <div style="margin-bottom:28px;">
+        <p style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:rgba(255,255,255,0.35); margin-bottom:8px;">Что входит в программу</p>
+        <ul class="check-list" style="margin-bottom:24px;">
+          <li><i class="fa-solid fa-check"></i> 17 видеоуроков с практическими заданиями</li>
+          <li><i class="fa-solid fa-check"></i> Персональный чат: я + куратор + AI-помощник Фидель</li>
+          <li><i class="fa-solid fa-check"></i> Проверка каждого ДЗ лично</li>
+          <li><i class="fa-solid fa-check"></i> Ведём до результата. Не отпустим пока не разберёшься</li>
+        </ul>
+
+        <p style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:rgba(255,255,255,0.35); margin-bottom:8px;">Бонусы</p>
+        <ul class="check-list" style="list-style:none; padding:0;">
+          <li style="display:flex; justify-content:space-between; align-items:baseline; gap:8px;"><span><i class="fa-solid fa-gift"></i> DeFi Синдикат, 1 год доступа</span> <span style="color:rgba(255,255,255,0.3); font-size:13px; white-space:nowrap;">60&nbsp;000&nbsp;₽</span></li>
+          <li style="display:flex; justify-content:space-between; align-items:baseline; gap:8px;"><span><i class="fa-solid fa-gift"></i> AI-аналитик Фидель</span> <span style="color:rgba(255,255,255,0.3); font-size:13px; white-space:nowrap;">50&nbsp;000&nbsp;₽</span></li>
+          <li style="display:flex; justify-content:space-between; align-items:baseline; gap:8px;"><span><i class="fa-solid fa-gift"></i> Структура портфеля Сергея</span> <span style="color:rgba(255,255,255,0.3); font-size:13px; white-space:nowrap;">30&nbsp;000&nbsp;₽</span></li>
+          <li style="display:flex; justify-content:space-between; align-items:baseline; gap:8px;"><span><i class="fa-solid fa-gift"></i> Финансовый навигатор</span> <span style="color:rgba(255,255,255,0.3); font-size:13px; white-space:nowrap;">15&nbsp;000&nbsp;₽</span></li>
+          <li style="display:flex; justify-content:space-between; align-items:baseline; gap:8px;"><span><i class="fa-solid fa-gift"></i> VPN + прокси + инструкция</span> <span style="color:rgba(255,255,255,0.3); font-size:13px; white-space:nowrap;">10&nbsp;000&nbsp;₽</span></li>
+          <li style="display:flex; justify-content:space-between; align-items:baseline; gap:8px;"><span><i class="fa-solid fa-gift"></i> Стартовый набор DeFi-практика</span> <span style="color:rgba(255,255,255,0.3); font-size:13px; white-space:nowrap;">16&nbsp;000&nbsp;₽</span></li>
+          <li style="display:flex; justify-content:space-between; align-items:baseline; gap:8px;"><span><i class="fa-solid fa-gift"></i> Доступ к практику с реальным капиталом</span> <span style="color:rgba(255,255,255,0.3); font-size:13px; white-space:nowrap;">бесценно</span></li>
+        </ul>
+      </div>
+
+      <div style="height:1px; background:#222; margin-bottom:24px;"></div>
+
+      <div style="text-align:center; margin-bottom:28px;">
+        <div class="price-old" style="text-align:center;">261&nbsp;000&nbsp;₽</div>
+        <div class="price-new" style="text-align:center;">79&nbsp;990&nbsp;₽</div>
+        <div class="price-badge" style="display:inline-block; margin-top:12px;">Экономия 181&nbsp;000&nbsp;₽</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:8px;">Безусловный возврат после первых 3 уроков</div>
+      </div>
+
+      <a href="https://lk.yourcashflow.ru" class="btn-primary btn-primary-lg" target="_blank" style="display:block; text-align:center; font-size:20px; padding:18px 40px;">
+        Начать обучение. 79&nbsp;990&nbsp;₽ →
+      </a>
+      <p class="btn-sub" style="text-align:center;">Доступ сразу после оплаты · Персональный чат в течение 24 часов · Беспроцентная рассрочка доступна</p>
+
+      <div style="margin-top:24px; background:rgba(250,102,15,0.06); border:1px solid rgba(250,102,15,0.2); border-radius:6px; padding:16px 20px; font-size:14px; color:rgba(255,255,255,0.6); text-align:center;">
+        <i class="fa-solid fa-shield-halved" style="color:#FA660F; margin-right:8px;"></i>
+        Перерасчёт на любом этапе за непройденные уроки. Честно и прозрачно.
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BLOCK 14 · FAQ — LIGHT
+════════════════════════════════════════ -->
+<section class="section section-light">
+  <div class="container" style="max-width:680px;">
+
+    <p class="section-label">FAQ</p>
+    <h2 style="color:#1a1a1a; margin-bottom:36px;">Частые вопросы</h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Нужен ли опыт в крипте? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-a">Программа подходит и новичкам, и тем, кто уже в теме. Начинаем с фундамента и ведём до собранного портфеля. Если прошёл интенсив, будет ещё проще.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Какая минимальная сумма для инвестиций? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-a">Работает с любой. Большинство начинают с $1&nbsp;000–$5&nbsp;000. Принципы те же для $100&nbsp;000, система масштабируется.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Сколько времени в неделю нужно? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-a">3–5 часов. Видео + задание + обратная связь в персональном чате. Можно вечерами или в выходные. Свой темп, без дедлайнов.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Доступ бессрочный? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-a">Доступ к урокам: 6 месяцев. Синдикат, 1 год доступа после 70% выполненных ДЗ.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Можно в рассрочку? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-a">Да, беспроцентная рассрочка. Первый платёж сегодня, начинаешь сразу.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Чем это отличается от YouTube и бесплатных курсов? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-a">Персональный чат с автором, куратором и AI-помощником. Проверка каждого ДЗ. Не теория, а система, строишь работающий портфель под контролем. На YouTube такого не бывает.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Что если не получится? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-a">Безусловный возврат после первых 3 уроков, без вопросов. Дальше перерасчёт на любом этапе за непройденные уроки.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Что такое Фидель? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-a">AI-аналитик, заточенный под DeFi. Подключён к реальным данным рынка. Помогает с уроками, считает доходность, оценивает риски, отвечает на вопросы по финансам. Работает в твоём чате 24/7.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Я из другой страны, подойдёт? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-a">DeFi работает одинаково по всему миру. Обучение на русском, доступ из любой точки. VPN и прокси предоставляем.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Мои деньги будут в безопасности? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-a">Да. Деньги всегда на твоём кошельке, не на бирже, не у нас, не у третьих лиц. Отдельный модуль по безопасности + чек-лист + Фидель проверяет контракты.</div>
+    </div>
+
+    <div class="faq-item" style="border-bottom:none;">
+      <div class="faq-q" onclick="toggleFaq(this)">Как быстро будет результат? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-a">Свой темп, кто-то проходит за месяц, кто-то за три. Но навык остаётся навсегда. Большинство открывают первую позицию в первые 2 недели.</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     ФИНАЛЬНЫЙ CTA — DARK
+════════════════════════════════════════ -->
+<section class="section section-dark">
+  <div class="container" style="text-align:center; max-width:640px;">
+    <h2 style="margin-bottom:16px;">Банк зарабатывает на твоих деньгах в 3 раза больше, чем платит тебе.</h2>
+    <p class="body-dark" style="font-size:16px; margin-bottom:36px;">Пора это изменить.</p>
+    <a href="https://lk.yourcashflow.ru" class="btn-primary btn-primary-lg" target="_blank" style="font-size:20px; padding:18px 48px;">
+      Начать обучение. 79&nbsp;990&nbsp;₽ →
+    </a>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BLOCK 15 · FOOTER — BLACK
+════════════════════════════════════════ -->
+<footer style="background:#000; border-top:1px solid #111; padding:48px 20px; text-align:center;">
+
+  <p style="color:#555; font-size:13px; margin:0 0 20px;">© 2026 ИП Мухомедзянов Сергей Амирович · «Крипта по-взрослому»</p>
+
+  <div style="max-width:560px; margin:0 auto; font-size:11px; color:#3a3a3a; line-height:1.7; text-align:left;">
+    <p style="margin:0 0 8px;">ИП Мухомедзянов Сергей Амирович · ИНН: [ИНН] · ОГРНИП: [ОГРНИП]</p>
+    <p style="margin:0 0 8px;">Оплачивая доступ, вы принимаете условия <a href="#" style="color:#555; text-decoration:underline;">публичной оферты</a> и <a href="#" style="color:#555; text-decoration:underline;">политики конфиденциальности</a>.</p>
+    <p style="margin:0 0 8px;">Программа предоставляет образовательные материалы. Результаты зависят от действий участника. Инвестиции в криптовалюты связаны с рисками, включая возможную потерю вложенных средств. Прошлые результаты не гарантируют будущих.</p>
+    <p style="margin:0;">По всем вопросам: <a href="https://t.me/smukhomedzyanov" style="color:#555; text-decoration:underline;">@smukhomedzyanov</a> · <a href="mailto:support@yourcashflow.ru" style="color:#555; text-decoration:underline;">support@yourcashflow.ru</a></p>
+  </div>
+
+</footer>
+
+
+<script>
+function toggleFaq(el) {
+  const a = el.nextElementSibling;
+  const isOpen = a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(x => x.classList.remove('open'));
+  document.querySelectorAll('.faq-q').forEach(x => x.classList.remove('open'));
+  if (!isOpen) { a.classList.add('open'); el.classList.add('open'); }
+}
+
+function toggleModule(el) {
+  const body = el.nextElementSibling;
+  const icon = el.querySelector('i');
+  const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+  // Close all
+  document.querySelectorAll('.module-body').forEach(b => { b.style.maxHeight = '0px'; });
+  document.querySelectorAll('[onclick="toggleModule(this)"] i').forEach(i => { i.style.transform = ''; });
+  if (!isOpen) {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    if (icon) icon.style.transform = 'rotate(180deg)';
+  }
+}
+</script>
+
+</body>
+</html>

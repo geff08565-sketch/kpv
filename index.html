@@ -447,6 +447,40 @@ h3 { font-size: clamp(16px, 2vw, 19px); font-weight: 600; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .review-video { max-height: 280px; }
 }
+
+/* ─── PAYMENT MODAL (yc-kpv-widget v1) ─── */
+body.modal-open { overflow: hidden; }
+.payment-modal {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(0,0,0,0.78);
+  display: none; align-items: center; justify-content: center; padding: 20px;
+}
+.payment-modal.is-open { display: flex; }
+.payment-modal-dialog {
+  width: min(760px, 100%); max-height: 90vh;
+  background: #111; border: 1px solid #222; border-radius: 12px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45); overflow: auto;
+}
+.payment-modal-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 18px 20px; border-bottom: 1px solid #222;
+}
+.payment-modal-title { font-size: 16px; font-weight: 600; color: #fff; }
+.payment-modal-close {
+  width: 40px; height: 40px; border-radius: 999px;
+  border: 1px solid #333; background: #1a1a1a; color: #fff;
+  font-size: 24px; line-height: 1; cursor: pointer;
+}
+.payment-modal-close:hover { border-color: #FA660F; color: #FA660F; }
+.payment-modal-body { padding: 20px; }
+.payment-widget-shell { background: #fff; border-radius: 8px; overflow: hidden; }
+.payment-widget-shell iframe { display: block; width: 100% !important; border: 0; }
+.payment-modal-sub { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 12px; text-align: center; }
+@media (max-width: 640px) {
+  .payment-modal { padding: 12px; }
+  .payment-modal-head, .payment-modal-body { padding: 14px; }
+  .payment-modal-title { font-size: 14px; }
+}
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -1549,9 +1583,9 @@ h3 { font-size: clamp(16px, 2vw, 19px); font-weight: 600; }
         <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:8px;">Безусловный возврат после первых 3 уроков</div>
       </div>
 
-      <a href="https://lk.yourcashflow.ru" class="btn-primary btn-primary-lg" target="_blank" style="display:block; text-align:center; font-size:20px; padding:18px 40px;">
+      <button type="button" onclick="openPaymentModal()" class="btn-primary btn-primary-lg" style="display:block; width:100%; text-align:center; font-size:20px; padding:18px 40px; border:none; cursor:pointer;">
         Начать обучение. 79&nbsp;990&nbsp;₽ →
-      </a>
+      </button>
       <p class="btn-sub" style="text-align:center;">Доступ сразу после оплаты · Персональный чат в течение 24 часов · Беспроцентная рассрочка доступна</p>
 
       <div style="margin-top:24px; background:rgba(250,102,15,0.06); border:1px solid rgba(250,102,15,0.2); border-radius:6px; padding:16px 20px; font-size:14px; color:rgba(255,255,255,0.6); text-align:center;">
@@ -1640,9 +1674,9 @@ h3 { font-size: clamp(16px, 2vw, 19px); font-weight: 600; }
   <div class="container" style="text-align:center; max-width:640px;">
     <h2 style="margin-bottom:16px;">Банк зарабатывает на твоих деньгах в 3 раза больше, чем платит тебе.</h2>
     <p class="body-dark" style="font-size:16px; margin-bottom:36px;">Пора это изменить.</p>
-    <a href="https://lk.yourcashflow.ru" class="btn-primary btn-primary-lg" target="_blank" style="font-size:20px; padding:18px 48px;">
+    <button type="button" onclick="openPaymentModal()" class="btn-primary btn-primary-lg" style="font-size:20px; padding:18px 48px; border:none; cursor:pointer;">
       Начать обучение. 79&nbsp;990&nbsp;₽ →
-    </a>
+    </button>
   </div>
 </section>
 
@@ -1685,7 +1719,39 @@ function toggleModule(el) {
     if (icon) icon.style.transform = 'rotate(180deg)';
   }
 }
+
+function openPaymentModal() {
+  const modal = document.getElementById('paymentModal');
+  modal.classList.add('is-open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+}
+function closePaymentModal() {
+  const modal = document.getElementById('paymentModal');
+  modal.classList.remove('is-open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+}
+window.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') closePaymentModal();
+});
 </script>
+
+
+<!-- yc-kpv-widget v1 -->
+<div class="payment-modal" id="paymentModal" aria-hidden="true" onclick="if (event.target === this) closePaymentModal()">
+  <div class="payment-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="paymentModalTitle">
+    <div class="payment-modal-head">
+      <div class="payment-modal-title" id="paymentModalTitle">Оплата курса «Крипта по-взрослому»</div>
+      <button type="button" class="payment-modal-close" onclick="closePaymentModal()" aria-label="Закрыть">×</button>
+    </div>
+    <div class="payment-modal-body">
+      <div class="payment-widget-shell" id="paymentWidgetShell">
+        <script id="c230c6fce25432a91fd5f3d3d31fea650bffacc2" src="https://lk.yourcashflow.ru/pl/lite/widget/script?id=1598017"></script>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

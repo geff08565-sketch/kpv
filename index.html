@@ -545,13 +545,13 @@ body.modal-open { overflow: hidden; }
   });
   window.__yc_utm = utmFinal;
 
-  // 4. На DOM-ready патчим все href на lk.yourcashflow.ru, добавляя UTM
+  // 4. На DOM-ready патчим owned/GetCourse href, добавляя UTM
   function patchLinks() {
     var hasAny = false;
     UTM_KEYS.forEach(function(k) { if (utmFinal[k]) hasAny = true; });
     if (!hasAny) return;
 
-    var nodes = document.querySelectorAll('a[href*="lk.yourcashflow.ru"], a[href*="yourcashflow.getcourse.ru"]');
+    var nodes = document.querySelectorAll('a[href*="lk.yourcashflow.ru"], a[href*="yourcashflow.getcourse.ru"], a[href*="post.yourcashflow.ru"], a[href*="intensive.yourcashflow.ru"], a[href*="kpv.yourcashflow.ru"], a[href*="learn.yourcashflow.ru"]');
     nodes.forEach(function(a) {
       try {
         var u = new URL(a.href);
@@ -1690,7 +1690,7 @@ body.modal-open { overflow: hidden; }
 
   <div style="max-width:560px; margin:0 auto; font-size:11px; color:#3a3a3a; line-height:1.7; text-align:left;">
     <p style="margin:0 0 8px;">ИП Мухомедзянов Сергей Амирович · ИНН: [ИНН] · ОГРНИП: [ОГРНИП]</p>
-    <p style="margin:0 0 8px;">Оплачивая доступ, вы принимаете условия <a href="#" style="color:#555; text-decoration:underline;">публичной оферты</a> и <a href="#" style="color:#555; text-decoration:underline;">политики конфиденциальности</a>.</p>
+    <p style="margin:0 0 8px;">Оплачивая доступ, вы принимаете условия <a href="https://lk.yourcashflow.ru/oferta" style="color:#555; text-decoration:underline;">публичной оферты</a>, <a href="https://lk.yourcashflow.ru/politica" style="color:#555; text-decoration:underline;">политики конфиденциальности</a> и <a href="https://lk.yourcashflow.ru/consent-pd" style="color:#555; text-decoration:underline;">согласия на обработку персональных данных</a>.</p>
     <p style="margin:0 0 8px;">Программа предоставляет образовательные материалы. Результаты зависят от действий участника. Инвестиции в криптовалюты связаны с рисками, включая возможную потерю вложенных средств. Прошлые результаты не гарантируют будущих.</p>
     <p style="margin:0;">По всем вопросам: <a href="https://t.me/smukhomedzyanov" style="color:#555; text-decoration:underline;">@smukhomedzyanov</a> · <a href="mailto:support@yourcashflow.ru" style="color:#555; text-decoration:underline;">support@yourcashflow.ru</a></p>
   </div>
@@ -1721,6 +1721,10 @@ function toggleModule(el) {
 }
 
 function openPaymentModal() {
+  if (window.ym) {
+    ym(108681680, 'reachGoal', 'payment_intent');
+    ym(108681680, 'reachGoal', 'kpv_payment_intent');
+  }
   const modal = document.getElementById('paymentModal');
   modal.classList.add('is-open');
   modal.setAttribute('aria-hidden', 'false');
